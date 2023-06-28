@@ -14,7 +14,7 @@ public class IntListExercises {
             head.first += c;
             head = head.rest;
         }
-        if(head.first <= c)
+        if(head.first <= c + head.first)
             head.first += c;
 
     }
