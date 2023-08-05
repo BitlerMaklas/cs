@@ -4,7 +4,7 @@ import edu.princeton.cs.algs4.Stopwatch;
 /**
  * Created by hug.
  */
-public class TimeSLList {
+public class TimeAList {
     private static void printTimingTable(AList<Integer> Ns, AList<Double> times, AList<Integer> opCounts) {
         System.out.printf("%12s %12s %12s %12s\n", "N", "time (s)", "# ops", "microsec/op");
         System.out.printf("------------------------------------------------------------\n");
@@ -17,12 +17,29 @@ public class TimeSLList {
         }
     }
 
-    public static void main(String[] args) {
-        timeGetLast();
-    }
+    public static void main(String[] args) { timeAListConstruction(); }
 
-    public static void timeGetLast() {
+    public static void timeAListConstruction() {
         // TODO: YOUR CODE HERE
-    }
+       AList<Integer> Ns = new AList<>();
+       AList<Double> times = new AList<>();
+       AList<Integer> Ops = new AList<>();
 
+       for(int i = 1000;i <= 12800000;i *= 2){
+           AList<Integer> list = new AList<>();
+           Stopwatch sw = new Stopwatch();
+           for(int j = 0;j < i; j++){
+               list.addLast(j);
+           }
+           double time = sw.elapsedTime();
+           int N = i;
+           int ops = i;
+           Ns.addLast(N);
+           Ops.addLast(ops);
+           times.addLast(time);
+
+       }
+       printTimingTable(Ns,times,Ops);
+
+    }
 }

@@ -1,8 +1,7 @@
-package timingtest;
-
 /** Array based list.
  *  @author Josh Hug
  */
+package timingtest;
 
 //         0 1  2 3 4 5 6 7
 // items: [6 9 -1 2 0 0 0 0 ...]
@@ -34,7 +33,8 @@ public class AList<Item> {
     /** Inserts X into the back of the list. */
     public void addLast(Item x) {
         if (size == items.length) {
-            resize(size + 1);
+            int newSize = (int)Math.round(size*1.5);
+            resize(newSize);
         }
 
         items[size] = x;
